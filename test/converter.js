@@ -1,0 +1,36 @@
+import test from 'ava'
+import convertToRoman from 'src/convertToRoman'
+
+test('error', t => {
+  t.throws(() => convertToRoman(-1))
+  t.throws(() => convertToRoman(0))
+  t.throws(() => convertToRoman(4000))
+})
+
+test('convert', t => {
+  t.is(convertToRoman(1), 'I')
+  t.is(convertToRoman(2), 'II')
+  t.is(convertToRoman(3), 'III')
+  t.is(convertToRoman(4), 'IV')
+  t.is(convertToRoman(5), 'V')
+  t.is(convertToRoman(6), 'VI')
+  t.is(convertToRoman(7), 'VII')
+  t.is(convertToRoman(8), 'VIII')
+  t.is(convertToRoman(9), 'IX')
+  t.is(convertToRoman(10), 'X')
+  t.is(convertToRoman(14), 'XIV')
+  t.is(convertToRoman(15), 'XV')
+  t.is(convertToRoman(19), 'XIX')
+  t.is(convertToRoman(20), 'XX')
+  t.is(convertToRoman(50), 'L')
+  t.is(convertToRoman(100), 'C')
+  t.is(convertToRoman(400), 'CD')
+  t.is(convertToRoman(500), 'D')
+  t.is(convertToRoman(900), 'CM')
+  t.is(convertToRoman(1000), 'M')
+  t.is(convertToRoman(1888), 'MDCCCLXXXVIII')
+  t.is(convertToRoman(2000), 'MM')
+  t.is(convertToRoman(2016), 'MMXVI')
+  t.is(convertToRoman(3000), 'MMM')
+  t.is(convertToRoman(3999), 'MMMCMXCIX')
+})
